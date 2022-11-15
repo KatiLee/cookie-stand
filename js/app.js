@@ -20,22 +20,64 @@ seattle.cookiesPerHour();
 
 
 let tokyo = {
-  minMaxArray: ['3', '24', '1.2']
-
+  minCust : 3,
+  maxCust : 24,
+  avgCookieSale : 1.2,
+  hourlyArrayCookies: [],
+  numOfCustomerPerHour: function(){
+    //console.log('inside the num of customer function.');
+  },
+  cookiesPerHour: function(){
+    //console.log('inside the cookies per hour.');
+  }
 };
+tokyo.numOfCustomerPerHour();
+tokyo.cookiesPerHour();
 
 let dubai = {
-  minMaxArray: ['11', '38', '3.7']
+  minCust: 11,
+  maxCust: 38,
+  avgCookieSale: 3.7,
+  hourlyArrayCookies:[],
+  numOfCustomerPerHour: function(){
+    //console.log('inside the num of customer function.')
+  },
+  cookiesPerHour: function(){
+    //console.log('inside the cookies per hour.');
+  }
 };
+dubai.numOfCustomerPerHour();
+dubai.cookiesPerHour();
 
 let paris = {
-  minMaxArray: ['20', '38', '2.3']
+  minCust: 20,
+  maxCust: 38,
+  avgCookieSale: 2.3,
+  hourlyArrayCookies: [],
+  numOfCustomerPerHour: function(){
+    //console.log('inside the num of customer function.')
+  },
+  cookiesPerHour: function(){
+    //console.log('inside the cookies per hour.');
+  }
 };
+paris.numOfCustomerPerHour();
+paris.cookiesPerHour();
 
 let lima = {
-  minMaxArray: ['2', '16', '4.6']
+  minCust: 2,
+  maxCust: 16,
+  avgCookieSale: 4.6,
+  hourlyArrayCookies: [],
+  numOfCustomerPerHour: function(){
+    //console.log('inside the num of customer function.')
+  },
+  cookiesPerHour: function(){
+    //console.log('inside the cookies per hour.');
+  }
 };
-
+lima.numOfCustomerPerHour();
+lima.cookiesPerHour();
 
 
 console.log('stores: ', seattle, tokyo, dubai, paris, lima);
