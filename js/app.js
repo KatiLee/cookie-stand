@@ -125,4 +125,7 @@ function displayData(location, id){
 
 
 displayData(seattle, 'seattle');
-//add the other objects
+displayData(tokyo, 'tokyo');
+displayData(dubai, 'dubai');
+displayData(paris, 'paris');
+displayData(lima, 'lima');
