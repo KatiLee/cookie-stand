@@ -1,3 +1,9 @@
+'use strict';
+console.log('js file connected.');
+
+
+
+
 let seattle = {
   minMaxArray: ['23', '65', '6.3']
 };
