@@ -1,6 +1,8 @@
 'use strict';
 console.log('js file connected.');
 
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
 
 let seattle = {
   minCust : 23,
@@ -8,10 +10,12 @@ let seattle = {
   avgCookieSale: 6.3,
   hourlyArrayCookies : [],
   numOfCustomerPerHour: function(){
-    console.log('inside the num of customer function.');
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   },
   cookiesPerHour: function(){
-    console.log('inside the cookies per hour');
+    for(let i = 0; i < hours.length; i++){
+      this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
+    }
   }
 };
 seattle.numOfCustomerPerHour();
@@ -25,10 +29,12 @@ let tokyo = {
   avgCookieSale : 1.2,
   hourlyArrayCookies: [],
   numOfCustomerPerHour: function(){
-    //console.log('inside the num of customer function.');
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   },
   cookiesPerHour: function(){
-    //console.log('inside the cookies per hour.');
+    for(let i = 0; i < hours.length; i++){
+      this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
+    }
   }
 };
 tokyo.numOfCustomerPerHour();
@@ -40,10 +46,12 @@ let dubai = {
   avgCookieSale: 3.7,
   hourlyArrayCookies:[],
   numOfCustomerPerHour: function(){
-    //console.log('inside the num of customer function.')
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   },
   cookiesPerHour: function(){
-    //console.log('inside the cookies per hour.');
+    for(let i = 0; i < hours.length; i++){
+      this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
+    }
   }
 };
 dubai.numOfCustomerPerHour();
@@ -55,10 +63,12 @@ let paris = {
   avgCookieSale: 2.3,
   hourlyArrayCookies: [],
   numOfCustomerPerHour: function(){
-    //console.log('inside the num of customer function.')
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   },
   cookiesPerHour: function(){
-    //console.log('inside the cookies per hour.');
+   for(let i = 0; i < hours.length; i++){
+    this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
+   }
   }
 };
 paris.numOfCustomerPerHour();
@@ -70,10 +80,12 @@ let lima = {
   avgCookieSale: 4.6,
   hourlyArrayCookies: [],
   numOfCustomerPerHour: function(){
-    //console.log('inside the num of customer function.')
+    return Math.ceil(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   },
   cookiesPerHour: function(){
-    //console.log('inside the cookies per hour.');
+    for(let i = 0; i < hours.length; i++){
+      this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
+    }
   }
 };
 lima.numOfCustomerPerHour();
@@ -84,18 +96,29 @@ console.log('stores: ', seattle, tokyo, dubai, paris, lima);
 
 
 
-// Sales Data
-
 function displayData(location, id){
-  // Display the values of each array as unordered lists in the browser.
+  location.cookiesPerHour();
+
   let parentElement = document.getElementById(id);
-  console.log(parentElement, location);
-  // continue to loop the data and create an li and append that info to the parentElements.
+  console.log(parentElement);
 
+  let cookieTotal = 0;
 
+  for(let i = 0; i < location.hourlyArrayCookies.length; i++){
+    let cookiesForThisHour = location.hourlyArrayCookies[i];
+    cookieTotal = cookieTotal + cookiesForThisHour;
 
+    let listString = hours[i] + ': ' + cookiesForThisHour + ' cookies';
+    let li = document.createElement('li');
+    li.textContent = listString;
+    parentElement.appendChild(li);
+  }
 
+  let totalLi = document.createElement('li');
+  totalLi.textContent = ' Total Cookies: ' + cookieTotal;
+  parentElement.appendChild(totalLi);
 }
+
 
 
 
