@@ -66,9 +66,9 @@ let paris = {
     return Math.ceil(Math.random() * (this.maxCust - this.minCust) + this.minCust);
   },
   cookiesPerHour: function(){
-   for(let i = 0; i < hours.length; i++){
-    this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
-   }
+    for(let i = 0; i < hours.length; i++){
+      this.hourlyArrayCookies[i] = Math.floor(this.numOfCustomerPerHour() * this.avgCookieSale);
+    }
   }
 };
 paris.numOfCustomerPerHour();
