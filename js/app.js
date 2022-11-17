@@ -161,7 +161,7 @@ StoreLocation.prototype.cookiesPurchased = function (){
 
 StoreLocation.prototype.renderTable = function (){
   let table = document.getElementById('salesData');
-  let row = doctument.createElement('tr');
+  let row = document.createElement('tr');
   let locationCell = document.createElement('th');
   locationCell.textContent = this.location;
   row.appendChild(locationCell);
@@ -193,3 +193,27 @@ function renderTableHeader(){
 }
 renderTableHeader();
 
+function renderTableFooter (){
+  let table = document.getElementById('salesData');
+  let row = document.createElement('tr');
+  let tableFooterCell.textContent = 'Totals';
+  row.appendChild(tableFooterCell);
+  for (let i = 0; i < hoursOpperation; i++){
+    let cookieTotalRow = 0;
+    for (let x = 0; x < locationInfo.length; x++){
+      cookieTotalRow = cookieTotalRow + locationInfo[x].hourlyArray[i];
+    }
+    tableFooterCell = document.createElement('td');
+    tableFooterCell.textContent = cookieTotalRow;
+    row.appendChild(tableFooterCell);
+  }
+  let altogetherTotal = 0;
+  for (let i = 0; i <locationInfo.length; i++){
+    altogetherTotal = altogetherTotal + locationInfo[i].cookieTotal;
+  }
+  tableFooterCell = document.createElement('td');
+  tableFooterCell.textContent = altogetherTotal;
+  row.appendChild(tableFooterCell);
+  row.id = 'footer';
+  table.appendChild(row);
+}
