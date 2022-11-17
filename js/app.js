@@ -129,3 +129,67 @@ displayData(tokyo, 'tokyo');
 displayData(dubai, 'dubai');
 displayData(paris, 'paris');
 displayData(lima, 'lima');
+
+
+
+
+//creating constructor function
+
+function StoreLocation (location, min, max, avgCookieSale){
+  this.location = location;
+  this.minCust = min;
+  this.maxCust = max;
+  this.avgCookieSale;
+  this.hourlyArray = [];
+  this.cookieTotal = 0;
+}
+
+StoreLocation.prototype.generateCookiesPerHour = function (){
+  let min = this.minCust;
+  let max = this.maxCust;
+  let random = Math.ceil(Math.random() * (max + 1 - min)) + min;
+  return random;
+};
+
+StoreLocation.prototype.cookiesPurchased = function (){
+  for (let i = 0; i < hours.length; i++){
+    this.hourlyArray[i] = Math.floor(this.generateCookiesPerHour() * this.avgCookieSale);
+    let cookiesForThisHour = this.hourlyArray[i];
+    this.cookieTotal = this.cookieTotal +cookiesForThisHour;
+  }
+};
+
+StoreLocation.prototype.renderTable = function (){
+  let table = document.getElementById('salesData');
+  let row = doctument.createElement('tr');
+  let locationCell = document.createElement('th');
+  locationCell.textContent = this.location;
+  row.appendChild(locationCell);
+  let tableDataCell;
+  for (let i = 0; i < hours.length; i++){
+    tableDataCell = document.createElement('td');
+    tableDataCell.textContent = this.hourlyArray[i];
+    row.appendChild(tableDataCell);
+  }
+  tableDataCell = document.createElement('td');
+  tableDataCell.textContent = this.cookieTotal;
+  row.appendChild(row);
+};
+
+function renderTableHeader(){
+  let table = document.getElementById('saleData');
+  let row = document.createElement('tr');
+  let tableHeadCell = document.createElement('th');
+  row.appendChild(tableHeadCell);
+  for (let i = 0; i < hours.length; i++){
+    tableHeadCell = document.createElement('th');
+    tableHeadCell.textContent = hours[i];
+    row.appendChild(tableHeadCell);
+  }
+  tableHeadCell = document.createElement('th');
+  tableHeadCell.textContent = 'Daily Location Totals';
+  row.appendChild(tableHeadCell);
+  table.appendChild(row);
+}
+renderTableHeader();
+
