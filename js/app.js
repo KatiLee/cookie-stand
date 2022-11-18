@@ -96,28 +96,28 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 
 
 
-function displayData(location, id){
-  location.cookiesPerHour();
+// function displayData(location, id){
+//   location.cookiesPerHour();
 
-  let parentElement = document.getElementById(id);
-  console.log(parentElement);
+//   let parentElement = document.getElementById(id);
+//   console.log(parentElement);
 
-  let cookieTotal = 0;
+//   let cookieTotal = 0;
 
-  for(let i = 0; i < location.hourlyArrayCookies.length; i++){
-    let cookiesForThisHour = location.hourlyArrayCookies[i];
-    cookieTotal = cookieTotal + cookiesForThisHour;
+//   for(let i = 0; i < location.hourlyArrayCookies.length; i++){
+//     let cookiesForThisHour = location.hourlyArrayCookies[i];
+//     cookieTotal = cookieTotal + cookiesForThisHour;
 
-    let listString = hours[i] + ': ' + cookiesForThisHour + ' cookies';
-    let li = document.createElement('li');
-    li.textContent = listString;
-    parentElement.appendChild(li);
-  }
+//     let listString = hours[i] + ': ' + cookiesForThisHour + ' cookies';
+//     let li = document.createElement('li');
+//     li.textContent = listString;
+//     parentElement.appendChild(li);
+//   }
 
-  let totalLi = document.createElement('li');
-  totalLi.textContent = ' Total Cookies: ' + cookieTotal;
-  parentElement.appendChild(totalLi);
-}
+//   let totalLi = document.createElement('li');
+//   totalLi.textContent = ' Total Cookies: ' + cookieTotal;
+//   parentElement.appendChild(totalLi);
+// }
 
 
 
