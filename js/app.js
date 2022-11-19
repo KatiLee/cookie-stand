@@ -1,7 +1,7 @@
 'use strict';
 console.log('js file connected.');
 
-// let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 
 
@@ -17,20 +17,27 @@ function StoreLocation (location, min, max,avgCookieSale){
   this.cookieTotal = 0;
 }
 
-// StoreLocation.prototype.generateCookiesPerHour = function (){
-//   let min = this.minCust;
-//   let max = this.maxCust;
-//   let random = Math.ceil(Math.random() * (max + 1 - min)) + min;
-//   return random;
-// };
+StoreLocation.prototype.generateCookiesPerHour = function (){
 
-// StoreLocation.prototype.cookiesPurchased = function (){
-//   for (let i = 0; i < hours.length; i++){
-//     this.hourlyArray[i] = Math.floor(this.generateCookiesPerHour() * this.avgCookieSale);
-//     let cookiesForThisHour = this.hourlyArray[i];
-//     this.cookieTotal = this.cookieTotal +cookiesForThisHour;
-//   }
-// };
+  let min = this.minCust;
+  let max = this.maxCust;
+
+  let random = Math.ceil(Math.random() * (max + 1 - min)) + min;
+  console.log('random num x avg cookieSale: ', random * this.avgCookieSale);
+  return random;
+};
+
+StoreLocation.prototype.cookiesPurchased = function (){
+
+  for (let i = 0; i < hours.length; i++){
+
+    this.hourlyArray[i] = Math.floor(this.generateCookiesPerHour() * this.avgCookieSale);
+
+    let cookiesForThisHour = this.hourlyArray[i];
+
+    this.cookieTotal = this.cookieTotal + cookiesForThisHour;
+  }
+};
 
 // StoreLocation.prototype.renderTable = function (){
 
@@ -120,7 +127,7 @@ console.log('location info: ', locationInfo);
 
 for (let i = 0; i < locationInfo.length; i++){
   // locationInfo[i].generateCookiesPerHour();
-  // locationInfo[i].cookiesPurchased();
+  locationInfo[i].cookiesPurchased();
   // locationInfo[i].renderTable();
 }
 // renderTableFooter();
