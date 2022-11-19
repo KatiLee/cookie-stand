@@ -3,7 +3,7 @@ console.log('js file connected.');
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-
+StoreLocation.allLocations = [];
 
 
 
@@ -15,6 +15,7 @@ function StoreLocation (location, min, max,avgCookieSale){
   this.avgCookieSale = avgCookieSale;
   this.hourlyArray = [];
   this.cookieTotal = 0;
+  StoreLocation.allLocations.push(this);
 }
 
 StoreLocation.prototype.generateCookiesPerHour = function (){
@@ -61,55 +62,55 @@ StoreLocation.prototype.renderTable = function (){
   table.appendChild(row);
 };
 
-// function renderTableHeader(){
-//   let table = document.getElementById('saleData');
-//   let row = document.createElement('tr');
-//   let tableHeadCell = document.createElement('th');
-//   row.appendChild(tableHeadCell);
-//   for (let i = 0; i < hours.length; i++){
-//     tableHeadCell = document.createElement('th');
-//     tableHeadCell.textContent = hours[i];
-//     row.appendChild(tableHeadCell);
-//   }
-//   tableHeadCell = document.createElement('th');
-//   tableHeadCell.textContent = 'Daily Location Totals';
-//   row.appendChild(tableHeadCell);
-//   table.appendChild(row);
-// }
-// renderTableHeader();
+function renderTableHeader(){
+  let table = document.getElementById('salesData');
+  let row = document.createElement('tr');
+  let tableHeadCell = document.createElement('th');
+  row.appendChild(tableHeadCell);
+  for (let i = 0; i < hours.length; i++){
+    tableHeadCell = document.createElement('th');
+    tableHeadCell.textContent = hours[i];
+    row.appendChild(tableHeadCell);
+  }
+  tableHeadCell = document.createElement('th');
+  tableHeadCell.textContent = 'Daily Location Totals';
+  row.appendChild(tableHeadCell);
+  table.appendChild(row);
+}
+renderTableHeader();
 
-// function renderTableFooter (){
+function renderTableFooter (){
 
-//   let table = document.getElementById('salesData');
+  let table = document.getElementById('salesData');
 
-//   let row = document.createElement('tr');
+  let row = document.createElement('tr');
 
-//   let tableFooterCell = document.createElement('th');
+  let tableFooterCell = document.createElement('th');
 
-//   tableFooterCell.textContent = 'Totals';
+  tableFooterCell.textContent = 'Totals';
 
-//   row.appendChild(tableFooterCell);
+  row.appendChild(tableFooterCell);
 
-//   //update the hoursOpperation
-//   for (let i = 0; i < hoursOpperation; i++){
-//     let cookieTotalRow = 0;
-//     for (let x = 0; x < locationInfo.length; x++){
-//       cookieTotalRow = cookieTotalRow + locationInfo[x].hourlyArray[i];
-//     }
-//     tableFooterCell = document.createElement('td');
-//     tableFooterCell.textContent = cookieTotalRow;
-//     row.appendChild(tableFooterCell);
-//   }
-//   let altogetherTotal = 0;
-//   for (let i = 0; i < locationInfo.length; i++){
-//     altogetherTotal = altogetherTotal + locationInfo[i].cookieTotal;
-//   }
-//   tableFooterCell = document.createElement('td');
-//   tableFooterCell.textContent = altogetherTotal;
-//   row.appendChild(tableFooterCell);
-//   row.id = 'footer';
-//   table.appendChild(row);
-// }
+  //update the hoursOpperation
+  for (let i = 0; i < hoursOpperation; i++){
+    let cookieTotalRow = 0;
+    for (let x = 0; x < locationInfo.length; x++){
+      cookieTotalRow = cookieTotalRow + locationInfo[x].hourlyArray[i];
+    }
+    tableFooterCell = document.createElement('td');
+    tableFooterCell.textContent = cookieTotalRow;
+    row.appendChild(tableFooterCell);
+  }
+  let altogetherTotal = 0;
+  for (let i = 0; i < locationInfo.length; i++){
+    altogetherTotal = altogetherTotal + locationInfo[i].cookieTotal;
+  }
+  tableFooterCell = document.createElement('td');
+  tableFooterCell.textContent = altogetherTotal;
+  row.appendChild(tableFooterCell);
+  row.id = 'footer';
+  table.appendChild(row);
+}
 
 
 let seattleLocation = new StoreLocation('Seattle', 23, 65, 6.3);
@@ -131,9 +132,8 @@ for (let i = 0; i < locationInfo.length; i++){
   //I dont think you need to call this since the cookiesPurchased function is doing that for you.
   // locationInfo[i].generateCookiesPerHour();
   locationInfo[i].cookiesPurchased();
-  // locationInfo[i].renderTable();
+//  locationInfo[i].renderTable();
 }
-
 
 
 for (let i = 0; i < locationInfo.length; i++){
@@ -143,4 +143,32 @@ for (let i = 0; i < locationInfo.length; i++){
 
 
 
-// renderTableFooter();
+renderTableFooter();
+
+
+
+//try my hand at a form!
+
+//create a function to handle the event
+
+
+function handleForm(event){
+  event.preventDefault();
+}
+
+
+let addStoreElement = document.getElementById('Add a Store');
+let addStoreValue = addStoreElement['value'];
+
+let addMinCustElement = document.getElementById('Minimum Customer');
+let addMinCustValue = addMinCustElement['value'];
+
+let addMaxCustElement = document.getElementById('Maximum Customer');
+let addMaxCustValue = addMaxCustElement['value'];
+
+let addAvgCookieElement = document.getElementById('How Many Cookies Do Customers Buy on Average');
+let addAvgCookieValue = addAvgCookieElement['value'];
+
+console.log('New data: ', addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
+
+let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
