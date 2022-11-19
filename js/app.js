@@ -92,7 +92,7 @@ function renderTableFooter (){
   row.appendChild(tableFooterCell);
 
   //update the hoursOpperation
-  for (let i = 0; i < hoursOpperation; i++){
+  for (let i = 0; i < hours.length; i++){
     let cookieTotalRow = 0;
     for (let x = 0; x < locationInfo.length; x++){
       cookieTotalRow = cookieTotalRow + locationInfo[x].hourlyArray[i];
@@ -101,12 +101,12 @@ function renderTableFooter (){
     tableFooterCell.textContent = cookieTotalRow;
     row.appendChild(tableFooterCell);
   }
-  let altogetherTotal = 0;
+  let allTogetherTotal = 0;
   for (let i = 0; i < locationInfo.length; i++){
-    altogetherTotal = altogetherTotal + locationInfo[i].cookieTotal;
+    allTogetherTotal = allTogetherTotal + locationInfo[i].cookieTotal;
   }
   tableFooterCell = document.createElement('td');
-  tableFooterCell.textContent = altogetherTotal;
+  tableFooterCell.textContent = allTogetherTotal;
   row.appendChild(tableFooterCell);
   row.id = 'footer';
   table.appendChild(row);
@@ -129,17 +129,15 @@ console.log('location info: ', locationInfo);
 
 
 for (let i = 0; i < locationInfo.length; i++){
-  //I dont think you need to call this since the cookiesPurchased function is doing that for you.
-  // locationInfo[i].generateCookiesPerHour();
   locationInfo[i].cookiesPurchased();
-//  locationInfo[i].renderTable();
-}
-
-
-for (let i = 0; i < locationInfo.length; i++){
-  console.log(locationInfo[i]);
   locationInfo[i].renderTable();
 }
+
+
+//for (let i = 0; i < locationInfo.length; i++){
+//  console.log(locationInfo[i]);
+ // locationInfo[i].renderTable();
+//}
 
 
 
@@ -155,35 +153,35 @@ renderTableFooter();
 function handleForm(event){
   event.preventDefault();
 
-  let addStoreElement = document.getElementById('Add a Store');
+  let addStoreElement = document.getElementById('add-a-store');
   let addStoreValue = addStoreElement['value'];
 
-  let addMinCustElement = document.getElementById('Minimum Customer');
+  let addMinCustElement = document.getElementById('minimum-customer');
   let addMinCustValue = addMinCustElement['value'];
 
-  let addMaxCustElement = document.getElementById('Maximum Customer');
+  let addMaxCustElement = document.getElementById('maximum-customer');
   let addMaxCustValue = addMaxCustElement['value'];
 
-  let addAvgCookieElement = document.getElementById('How Many Cookies Do Customers Buy on Average');
+  let addAvgCookieElement = document.getElementById('average-cookie-sold');
   let addAvgCookieValue = addAvgCookieElement['value'];
 
   console.log('New data: ', addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
 
 
   //Look closer at this, I'm not sure it's going to work. You've got the cookie numbers being generated but I'm not sure this is the proper way to execute rendering the table.
-  let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
-  newStore.generateCookiesPerHour();
-  newStore.renderTable();
-  console.log('Show me the new new: ', newStore);
+ // let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
+ // newStore.generateCookiesPerHour();
+ // newStore.renderTable();
+ // console.log('Show me the new new: ', newStore);
 
 
   //clear that darned form out
-  let storeForm = document.getElementById('add-store');
-  storeForm.requestFullscreen();
+ // let storeForm = document.getElementById('add-store');
+ // storeForm.requestFullscreen();
 
 }
 
-let storeForm = document.getElementById('add-store');
-storeForm.addEventListener('submit', handleForm);
+//let storeForm = document.getElementById('add-store');
+//storeForm.addEventListener('submit', handleForm);
 
 
