@@ -96,18 +96,18 @@ function renderTableFooter (){
   table.appendChild(row);
 }
 
-let seattleLocation=new StoreLocation('Seattle', 23, 65, 6.3);
-let tokyoLocation=new StoreLocation('Tokoyo', 3, 24, 1.2);
-let dubaiLocation=new StoreLocation('Dubai', 11, 38, 3.7);
-let parisLocation=new StoreLocation('Paris', 20, 38, 2.3);
-let limaLocation=new StoreLocation('Lima', 2, 16, 4.6);
+let seattleLocation = new StoreLocation('Seattle', 23, 65, 6.3);
+let tokyoLocation = new StoreLocation('Tokoyo', 3, 24, 1.2);
+let dubaiLocation = new StoreLocation('Dubai', 11, 38, 3.7);
+let parisLocation = new StoreLocation('Paris', 20, 38, 2.3);
+let limaLocation = new StoreLocation('Lima', 2, 16, 4.6);
 
 
 
 
 
 
-let locationInfo=[seattleLocation, tokyoLocation, dubaiLocation, parisLocation, limaLocation];
+let locationInfo = [seattleLocation, tokyoLocation, dubaiLocation, parisLocation, limaLocation];
 
 for (let i = 0; i < locationInfo.length; i++){
   locationInfo[i].generateCookiesPerHour();
