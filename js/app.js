@@ -33,7 +33,9 @@ StoreLocation.prototype.cookiesPurchased = function (){
 };
 
 StoreLocation.prototype.renderTable = function (){
-  let table = document.getElementById('salesData');
+
+  // let table = document.getElementById('salesData');
+
   let row = document.createElement('tr');
   let locationCell = document.createElement('th');
   locationCell.textContent = this.location;
