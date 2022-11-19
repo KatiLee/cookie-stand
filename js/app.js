@@ -131,6 +131,15 @@ for (let i = 0; i < locationInfo.length; i++){
   //I dont think you need to call this since the cookiesPurchased function is doing that for you.
   // locationInfo[i].generateCookiesPerHour();
   locationInfo[i].cookiesPurchased();
+  // locationInfo[i].renderTable();
+}
+
+
+
+for (let i = 0; i < locationInfo.length; i++){
   locationInfo[i].renderTable();
 }
+
+
+
 // renderTableFooter();
