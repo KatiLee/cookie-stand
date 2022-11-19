@@ -44,6 +44,8 @@ StoreLocation.prototype.renderTable = function (){
   let table = document.getElementById('salesData');
 
   let row = document.createElement('tr');
+
+  table.appendChild(row);
   let locationCell = document.createElement('th');
   locationCell.textContent = this.location;
   row.appendChild(locationCell);
