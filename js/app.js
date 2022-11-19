@@ -49,6 +49,7 @@ StoreLocation.prototype.renderTable = function (){
   let locationCell = document.createElement('th');
   locationCell.textContent = this.location;
   row.appendChild(locationCell);
+
   let tableDataCell;
   for (let i = 0; i < hours.length; i++){
     tableDataCell = document.createElement('td');
@@ -57,8 +58,7 @@ StoreLocation.prototype.renderTable = function (){
   }
   tableDataCell = document.createElement('td');
   tableDataCell.textContent = this.cookieTotal;
-  row.appendChild(row);
-
+  table.appendChild(row);
 };
 
 // function renderTableHeader(){
@@ -137,6 +137,7 @@ for (let i = 0; i < locationInfo.length; i++){
 
 
 for (let i = 0; i < locationInfo.length; i++){
+  console.log(locationInfo[i]);
   locationInfo[i].renderTable();
 }
 
