@@ -154,21 +154,36 @@ renderTableFooter();
 
 function handleForm(event){
   event.preventDefault();
+
+  let addStoreElement = document.getElementById('Add a Store');
+  let addStoreValue = addStoreElement['value'];
+
+  let addMinCustElement = document.getElementById('Minimum Customer');
+  let addMinCustValue = addMinCustElement['value'];
+
+  let addMaxCustElement = document.getElementById('Maximum Customer');
+  let addMaxCustValue = addMaxCustElement['value'];
+
+  let addAvgCookieElement = document.getElementById('How Many Cookies Do Customers Buy on Average');
+  let addAvgCookieValue = addAvgCookieElement['value'];
+
+  console.log('New data: ', addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
+
+
+  //Look closer at this, I'm not sure it's going to work. You've got the cookie numbers being generated but I'm not sure this is the proper way to execute rendering the table.
+  let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
+  newStore.generateCookiesPerHour();
+  newStore.renderTable();
+  console.log('Show me the new new: ', newStore);
+
+
+  //clear that darned form out
+  let storeForm = document.getElementById('add-store');
+  storeForm.requestFullscreen();
+
 }
 
+let storeForm = document.getElementById('add-store');
+storeForm.addEventListener('submit', handleForm);
 
-let addStoreElement = document.getElementById('Add a Store');
-let addStoreValue = addStoreElement['value'];
 
-let addMinCustElement = document.getElementById('Minimum Customer');
-let addMinCustValue = addMinCustElement['value'];
-
-let addMaxCustElement = document.getElementById('Maximum Customer');
-let addMaxCustValue = addMaxCustElement['value'];
-
-let addAvgCookieElement = document.getElementById('How Many Cookies Do Customers Buy on Average');
-let addAvgCookieValue = addAvgCookieElement['value'];
-
-console.log('New data: ', addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
-
-let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
