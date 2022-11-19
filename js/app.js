@@ -39,25 +39,25 @@ StoreLocation.prototype.cookiesPurchased = function (){
   }
 };
 
-// StoreLocation.prototype.renderTable = function (){
+StoreLocation.prototype.renderTable = function (){
+  console.log('we are here');
+  let table = document.getElementById('salesData');
 
-//   // let table = document.getElementById('salesData');
+  let row = document.createElement('tr');
+  let locationCell = document.createElement('th');
+  locationCell.textContent = this.location;
+  row.appendChild(locationCell);
+  let tableDataCell;
+  for (let i = 0; i < hours.length; i++){
+    tableDataCell = document.createElement('td');
+    tableDataCell.textContent = this.hourlyArray[i];
+    row.appendChild(tableDataCell);
+  }
+  tableDataCell = document.createElement('td');
+  tableDataCell.textContent = this.cookieTotal;
+  row.appendChild(row);
 
-//   let row = document.createElement('tr');
-//   let locationCell = document.createElement('th');
-//   locationCell.textContent = this.location;
-//   row.appendChild(locationCell);
-//   let tableDataCell;
-//   for (let i = 0; i < hours.length; i++){
-//     tableDataCell = document.createElement('td');
-//     tableDataCell.textContent = this.hourlyArray[i];
-//     row.appendChild(tableDataCell);
-//   }
-//   tableDataCell = document.createElement('td');
-//   tableDataCell.textContent = this.cookieTotal;
-//   row.appendChild(row);
-
-// };
+};
 
 // function renderTableHeader(){
 //   let table = document.getElementById('saleData');
@@ -126,8 +126,9 @@ console.log('location info: ', locationInfo);
 
 
 for (let i = 0; i < locationInfo.length; i++){
+  //I dont think you need to call this since the cookiesPurchased function is doing that for you.
   // locationInfo[i].generateCookiesPerHour();
   locationInfo[i].cookiesPurchased();
-  // locationInfo[i].renderTable();
+  locationInfo[i].renderTable();
 }
 // renderTableFooter();
