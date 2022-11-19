@@ -49,6 +49,7 @@ StoreLocation.prototype.renderTable = function (){
   tableDataCell = document.createElement('td');
   tableDataCell.textContent = this.cookieTotal;
   row.appendChild(row);
+
 };
 
 function renderTableHeader(){
@@ -74,6 +75,7 @@ function renderTableFooter (){
   let tableFooterCell = document.createElement('th');
   tableFooterCell.textContent = 'Totals';
   row.appendChild(tableFooterCell);
+  //update the hoursOpperation
   for (let i = 0; i < hoursOpperation; i++){
     let cookieTotalRow = 0;
     for (let x = 0; x < locationInfo.length; x++){
