@@ -24,7 +24,7 @@ StoreLocation.prototype.generateCookiesPerHour = function (){
   let max = this.maxCust;
 
   let random = Math.ceil(Math.random() * (max + 1 - min)) + min;
-  console.log('random num x avg cookieSale: ', random * this.avgCookieSale);
+  //console.log('random num x avg cookieSale: ', random * this.avgCookieSale);
   return random;
 };
 
@@ -41,7 +41,7 @@ StoreLocation.prototype.cookiesPurchased = function (){
 };
 
 StoreLocation.prototype.renderTable = function (){
-  console.log('we are here');
+ // console.log('we are here');
   let table = document.getElementById('salesData');
 
   let row = document.createElement('tr');
