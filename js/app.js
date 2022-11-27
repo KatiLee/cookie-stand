@@ -7,7 +7,7 @@ StoreLocation.allLocations = [];
 
 
 
-function StoreLocation (location, min, max,avgCookieSale){
+function StoreLocation (location, min, max, avgCookieSale){
   this.location = location;
   this.minCust = min;
   this.maxCust = max;
