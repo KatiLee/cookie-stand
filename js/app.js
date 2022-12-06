@@ -11,7 +11,6 @@ function StoreLocation (location, min, max, avgCookieSale){
   this.location = location;
   this.minCust = min;
   this.maxCust = max;
-  //update below to this.avgCookieSale = avgCookieSale
   this.avgCookieSale = avgCookieSale;
   this.hourlyArray = [];
   this.cookieTotal = 0;
@@ -41,7 +40,7 @@ StoreLocation.prototype.cookiesPurchased = function (){
 };
 
 StoreLocation.prototype.renderTable = function (){
- // console.log('we are here');
+  // console.log('we are here');
   let table = document.getElementById('salesData');
 
   let row = document.createElement('tr');
@@ -82,13 +81,9 @@ renderTableHeader();
 function renderTableFooter (){
 
   let table = document.getElementById('salesData');
-
   let row = document.createElement('tr');
-
   let tableFooterCell = document.createElement('th');
-
   tableFooterCell.textContent = 'Totals';
-
   row.appendChild(tableFooterCell);
 
   //update the hoursOpperation
@@ -157,31 +152,31 @@ function handleForm(event){
   let addStoreValue = addStoreElement['value'];
 
   let addMinCustElement = document.getElementById('minimum-customer');
-  let addMinCustValue = addMinCustElement['value'];
+  let addMinCustValue = Number(addMinCustElement['value']);
 
   let addMaxCustElement = document.getElementById('maximum-customer');
-  let addMaxCustValue = addMaxCustElement['value'];
+  let addMaxCustValue = Number(addMaxCustElement['value']);
 
   let addAvgCookieElement = document.getElementById('average-cookie-sold');
-  let addAvgCookieValue = addAvgCookieElement['value'];
+  let addAvgCookieValue = Number(addAvgCookieElement['value']);
 
   console.log('New data: ', addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
 
 
   //Look closer at this, I'm not sure it's going to work. You've got the cookie numbers being generated but I'm not sure this is the proper way to execute rendering the table.
- // let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
- // newStore.generateCookiesPerHour();
- // newStore.renderTable();
- // console.log('Show me the new new: ', newStore);
+  let newStore = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
+  newStore.generateCookiesPerHour();
+  newStore.renderTable();
+  console.log('Show me the new new: ', newStore);
 
 
-  //clear that darned form out
- // let storeForm = document.getElementById('add-store');
- // storeForm.requestFullscreen();
+  // clear that darned form out
+  let storeForm = document.getElementById('add-store');
+  // storeForm.requestFullscreen();
 
 }
 
-//let storeForm = document.getElementById('add-store');
-//storeForm.addEventListener('submit', handleForm);
+let storeForm = document.getElementById('add-store');
+storeForm.addEventListener('submit', handleForm);
 
 
