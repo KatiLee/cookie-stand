@@ -135,7 +135,7 @@ function handleForm(event){
   renderTableFooter();
 
   let newStoreForm = document.getElementById('new-store');
-  newStoreForm.reset();
+  // newStoreForm.reset();
 
 }
 
