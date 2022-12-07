@@ -20,11 +20,35 @@ h3 {
 
 img {
   max-width: 80%;
-  ;
 }
 
+div {
+	border-style: inset;
+	border-color: cornflowerblue;
+	border-width: 10px;
+	background-color: coral;
+	display: inline-block;
+	padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* pulling in a template table */
-html,
+/* html,
 body {
 	height: 100%;
 }
@@ -89,4 +113,4 @@ tbody {
 			}
 		}
 	}
-}
+} */
