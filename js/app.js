@@ -38,7 +38,7 @@ StoreLocation.prototype.cookiesPurchased = function (){
 };
 
 StoreLocation.prototype.renderTable = function (){
-  // console.log('we are here');
+  console.log('we are here');
   let table = document.getElementById('salesData');
   let row = document.createElement('tr');
 
@@ -55,6 +55,7 @@ StoreLocation.prototype.renderTable = function (){
   }
   tableDataCell = document.createElement('td');
   tableDataCell.textContent = this.cookieTotal;
+  row.appendChild(tableDataCell);
   table.appendChild(row);
 };
 
@@ -77,6 +78,7 @@ function renderTableHeader(){
   table.appendChild(row);
 }
 renderTableHeader();
+
 
 function renderTableFooter (){
 
@@ -123,19 +125,18 @@ function handleForm(event){
   let addAvgCookieElement = document.getElementById('average-cookie-sold');
   let addAvgCookieValue = Number(addAvgCookieElement['value']);
 
-  console.log('New data: ', addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
-
   let OldtableTableFooter = document.getElementById('footer');
   OldtableTableFooter.remove();
 
   let newShop = new StoreLocation(addStoreValue, addMinCustValue, addMaxCustValue, addAvgCookieValue);
   newShop.generateCookiesPerHour();
   newShop.cookiesPurchased();
-  newShop.renderTableData();
+  newShop.renderTable();
   renderTableFooter();
 
   let newStoreForm = document.getElementById('new-store');
   newStoreForm.reset();
+
 }
 
 let seattleLocation = new StoreLocation('Seattle', 23, 65, 6.3);
@@ -159,7 +160,7 @@ renderTableFooter();
 
 
 
-let newStoreForm = document.getElementById('add-a-store');
+let newStoreForm = document.getElementById('add-store');
 newStoreForm.addEventListener('submit', handleForm);
 
 
