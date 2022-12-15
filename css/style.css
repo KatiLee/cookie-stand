@@ -6,6 +6,8 @@ a {
   border-width: 5px;
   display: inline-block;
   font-size: 20px;
+  color: rgb(241, 40, 161);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -46,4 +48,6 @@ div {
 	background-color: coral;
 	display: inline-block;
 	padding: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: darkmagenta;
 }
